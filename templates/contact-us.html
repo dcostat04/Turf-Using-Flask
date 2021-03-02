@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Contact Us - Brand</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="static/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="static/assets/css/-Login-form-Page-BS4-.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="static/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="static/assets/css/smoothproducts.css">
+    <link href="{{ url_for('static', filename='styles3.css') }}" rel="stylesheet" type="text/css" />
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="{{ url_for( 'home') }}">PPT Turfs</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link " href="{{ url_for( 'home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for( 'turfs') }}">Turfs</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ url_for( 'contact') }}">Booking</a></li>
+                    <li> <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Bookings</h2>
+                    <p>Your Bookings</p>
+                </div>
+                <div class='container'>
+  <h1 >Your Order</h1>
+<!--                                                                                 -->
+<div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class=flashes>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <div id="shopping-cart" style="color: black; ">
+    <div class="txt-heading"  font-size: 1.7em;">Shopping Cart</div>
+    {% if 'cart_item' in session %}
+      <table class="tbl-cart" cellpadding="10" cellspacing="1">
+      <tbody>
+        <tr >
+          <th style="text-align:left;background-color:#d88e51 ;">Name</th>
+          <th style="text-align:left;background-color:#d69f70 ;">Code</th>
+          <th style="text-align:right;background-color:#d88e51 ;" width="5%">Quantity</th>
+          <th style="text-align:right;background-color:#d69f70 ;" width="10%">Unit Price</th>
+          <th style="text-align:right;background-color:#d88e51 ;" width="10%">Price</th>
+          <th style="text-align:center;background-color:#e3a571 ;" width="5%">Remove</th>
+        </tr>
+        {% for key, val in session['cart_item'].items() %}
+          {% set quantity = session['cart_item'][key]['quantity'] %}
+          {% set price = session['cart_item'][key]['price'] %}
+          {% set item_price = session['cart_item'][key]['total_price'] %}
+          <tr >
+            <td style="background-color: #e3e3e3; ">{{ session['cart_item'][key]['name'] }}</td>
+            <td style="background-color: #eee; ">{{ session['cart_item'][key]['code'] }}</td>
+            <td style="text-align:right;background-color: #e3e3e3;">{{ quantity }}</td>
+            <td  style="text-align:right ;background-color: #eee;">&#8377; {{ price }}</td>
+            <td  style="text-align:right;background-color: #e3e3e3;">&#8377; {{ item_price }}</td>
+            <td style="text-align:center;background-color: #eee;">
+              <a href="{{ url_for('.delete_product', code=session['cart_item'][key]['code']) }}" class="btnRemoveAction">
+               <ion-icon style="color: black;" name="trash-sharp"></ion-icon>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="2" align="right" style="background-color: #e3e3e3;">Total:</td>
+          <td align="right"style="background-color: #eee; ">{{ session['all_total_quantity'] }}</td>
+          <td align="right" colspan="2"style="background-color: #e3e3e3;"><strong>&#8377; {{ session['all_total_price'] }}</strong></td>
+          <td style="background-color: #e3e3e3;"></td>
+        </tr>
+      </tbody>
+      </table>
+    {% else: %}
+      <div class="no-records" >Your Cart is Empty</div>
+    {% endif %}
+  </div>
+
+
+
+</div>
+            </div>
+
+
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="static/assets/js/smoothproducts.min.js"></script>
+    <script src="static/assets/js/theme.js"></script>
+</body>
+
+</html>

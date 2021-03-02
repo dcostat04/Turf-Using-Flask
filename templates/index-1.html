@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login-PPT TURFS</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="static/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="static/assets/css/-Login-form-Page-BS4-.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="static/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="static/assets/css/smoothproducts.css">
+</head>
+
+<body>
+    <section class="login-dark">
+        <div class="login  @ Turf">
+
+        <form action="{{ url_for('login') }}" method="post">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+
+            <div class="form-group"><input class="form-control" type="text" name="username" placeholder="username" id="username" required></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"id="password" required></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" onclick="window.location.href='{{ url_for( 'login') }}';" type="submit">Log In</button></div>
+             <div class="links">
+
+				<a href="{{ url_for('register') }}">Register</a>
+			</div>
+        </form>
+
+        </div>
+    </section>
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="static/assets/js/smoothproducts.min.js"></script>
+    <script src="static/assets/js/theme.js"></script>
+</body>
+
+</html>
