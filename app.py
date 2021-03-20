@@ -10,10 +10,10 @@ app = Flask(__name__)
 
 app.secret_key = 'TIGER'
 
-app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
-app.config['MYSQL_USER'] = 'sql6399119'
-app.config['MYSQL_PASSWORD'] = 'pWBRQrYnmJ'
-app.config['MYSQL_DB'] = 'sql6399119'
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'trevor@0409'
+app.config['MYSQL_DB'] = 'turf'
 
 mysql = MySQL(app)
 
@@ -35,7 +35,7 @@ def login():
             return redirect(url_for('home'))
         else:
             msg = 'Incorrect username or password!'
-    return render_template('index-1.html', msg=msg)
+    return render_template('login1.html', msg=msg)
 
 @app.route('/logout')
 def logout():
@@ -71,7 +71,7 @@ def register():
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
         msg = 'Please fill out the form!'
-    return render_template('signup.html', msg=msg)
+    return render_template('registration.html', msg=msg)
 
 @app.route('/home')
 def home():
@@ -83,6 +83,12 @@ def home():
 def turfs():
     if 'loggedin' in session:
         return render_template("turf.html", username=session['username'])
+    return redirect(url_for('login'))
+
+@app.route('/chemburturfs')
+def chembur():
+    if 'loggedin' in session:
+        return render_template("chembur.html", username=session['username'])
     return redirect(url_for('login'))
 
 @app.route('/contact')

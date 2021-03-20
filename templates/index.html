@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="static//assets/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="static/assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="static/assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="static/assets/css/-Login-form-Page-BS4-.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/smoothproducts.css') }}">
     <link rel="stylesheet" href="static/assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="static/assets/css/smoothproducts.css">
-</head>
+<link rel="icon" type="image/png" href="static/ppt.png" />
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
@@ -32,7 +32,7 @@
         <section class="clean-block clean-hero" style="background-image:url(&quot;static/assets/img/vashi.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
             <div class="text">
                 <h2>Welcome To PPT Turfs</h2>
-                <p style="font-size: 32;">Looking for a Turf ? Search any Sports Turf near You</p><button class="btn btn-outline-light btn-lg" type="button">Learn More</button>
+                <p style="font-size: 32;">Looking for a Turf ? Search any Sports Turf near You</p><button class="btn btn-outline-light btn-lg" type="button" onclick="window.location.href='{{ url_for( 'turfs') }}';">Learn More</button>
             </div>
         </section>
         <section class="clean-block clean-info dark">
@@ -47,7 +47,7 @@
                         <h3>Book Turf as per your own time</h3>
                         <div class="getting-started-info">
                             <p>Easiest Way To book a turf.</p>
-                        </div><button class="btn btn-outline-primary btn-lg" type="button">Book Now</button>
+                        </div><button class="btn btn-outline-primary btn-lg" type="button" onclick="window.location.href='{{ url_for( 'turfs') }}';">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -81,10 +81,10 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-6 col-lg-4">
-                        <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="static/assets/img/avatars/avatar1.jpg">
+                        <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="static/assets/img/Trevor.jpg">
                             <div class="card-body info">
                                 <h4 class="card-title">Trevor Aaron Robert Dcosta</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="card-text">Computer Engineer And Web Developer</p>
                                 <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
                             </div>
                         </div>
@@ -93,16 +93,16 @@
                         <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="static/assets/img/avatars/avatar2.jpg">
                             <div class="card-body info">
                                 <h4 class="card-title">Pranit Moghe</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="card-text">Computer Engineer And Web Developer</p>
                                 <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-4">
-                        <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="static/assets/img/avatars/avatar3.jpg">
+                        <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" height="50%" src="static/assets/img/pratik.jpg">
                             <div class="card-body info">
                                 <h4 class="card-title">Pratik Dhumal</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="card-text">Computer Engineer And Web Developer</p>
                                 <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
                             </div>
                         </div>
@@ -117,11 +117,11 @@
             <p>© 2021 Copyright Text</p>
         </div>
     </footer>
-    <script src="static/assets/js/jquery.min.js"></script>
-    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="static/assets/js/smoothproducts.min.js"></script>
-    <script src="static/assets/js/theme.js"></script>
+    <script src="{{ url_for('static',filename='assets/js/smoothproducts.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/theme.js')}}"></script>
 </body>
 
 </html>
